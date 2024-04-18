@@ -11,7 +11,7 @@ function App() {
   }, []);
 
   const fetchData = () => {
-    axios.get('http://localhost:4000')
+    axios.get('http://nodejsserver-257958379.ap-south-1.elb.amazonaws.com/api')
       .then(response => {
         setData(response.data);
         setIsLoading(false);
@@ -20,6 +20,7 @@ function App() {
       .catch(error => {
         setData(null);
         setIsLoading(false);
+        console.log(error, "djdjjd")
         setError('Error fetching data');
       });
   };
@@ -36,8 +37,9 @@ function App() {
     <div>
       {/* Render your fetched data here */}
       <pre>{JSON.stringify(data, null, 2)}</pre>
+      <p>welcome</p>
     </div>
-    // <p>welcome</p>
+
   );
 }
 
