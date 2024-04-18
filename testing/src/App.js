@@ -10,8 +10,8 @@ function App() {
     fetchData();
   }, []);
 
-  const fetchData = () => {
-    axios.get('http://nodejsserver-257958379.ap-south-1.elb.amazonaws.com/api')
+  const fetchData = async () => {
+    await axios.get('http://nodejsserver-257958379.ap-south-1.elb.amazonaws.com/api')
       .then(response => {
         setData(response.data);
         setIsLoading(false);
